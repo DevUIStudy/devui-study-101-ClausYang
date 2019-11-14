@@ -2,6 +2,12 @@
 
   <div class="header">
     <img [src]="headerLogo">
+    <d-tabs [(activeTab)]="tab22acticeID" [showContent]="false">
+      <d-tab id="tab1" title="首页" tabId="tab1"> </d-tab>
+    </d-tabs>
+    <div class="greeting">
+      <span>HI {{username}}</span>
+    </div>
   </div>
 
   <div class="menu-container">
