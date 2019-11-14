@@ -1,0 +1,133 @@
+export interface SourceType {
+    id?: number;
+    firstName: string;
+    lastName: string;
+    label: string;
+    enterprise: string;
+    character: string;
+    accounts: string;
+    ban: string;
+  }
+  
+  export const originSource = [
+    {
+      id: 1,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '项目创建者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 2,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '项目经理',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 3,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '项目经理',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 4,
+      firstName: 'xxx',
+      lastName: '--',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 5,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 6,
+      firstName: 'xxx',
+      lastName: '--',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 7,
+      firstName: 'xxx',
+      lastName: '--',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 8,
+      firstName: 'xxx',
+      lastName: '--',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 9,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 10,
+      firstName: 'xxx',
+      lastName: '--',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 11,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+    {
+      id: 12,
+      firstName: 'xxx',
+      lastName: 'xxx',
+      label: ' ',
+      enterprise: 'china',
+      character: '参与者',
+      accounts: '华为云',
+      ban:'否',
+    },
+  ];
