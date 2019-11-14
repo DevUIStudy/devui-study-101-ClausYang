@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminFilesComponent } from './admin-files/admin-files.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AdminFilesChartComponent } from './admin-files-chart/admin-files-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminFilesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AdminFilesChartComponent
   ],
   imports: [
     BrowserModule,
