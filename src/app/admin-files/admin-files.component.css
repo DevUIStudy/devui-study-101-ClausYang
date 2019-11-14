@@ -1,13 +1,13 @@
 .container {
     height: 100vh;
     margin: 0;
-    background: #f3f6f8;
+    background: #ebe8e8;
 }
 
 .header {
     height: 40px;
     color: #c0c0c0;
-    background: #232323;
+    background: black;
 }
 
 .header h1 {
