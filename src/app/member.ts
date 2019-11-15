@@ -2,6 +2,9 @@ export class Member {
     id: number;
     firstName: string;
     lastName: string;
-    dob: Date;
-    gender: string;
+    label: string;
+    enterprise: string;
+    character: string;
+    accounts: string;
+    ban: string;
 }

@@ -11,9 +11,13 @@ export class AdminFilesChartComponent implements OnInit {
     id: 1,
     firstName: '',
     lastName: '',
-    dob: new Date(1990, 12, 1),
-    gender: 'Male',
+    label: '',
+    enterprise: '',
+    character: '',
+    accounts: '',
+    ban:'',
   }
+  showMemberEditor = true
   constructor() { }
 
   ngOnInit() {
