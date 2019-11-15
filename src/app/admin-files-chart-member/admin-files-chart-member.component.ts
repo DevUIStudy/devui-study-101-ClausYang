@@ -10,10 +10,25 @@ import { ContactService } from '../contact.services';
   styleUrls: ['./admin-files-chart-member.component.css']
 })
 export class AdminFilesChartMemberComponent implements OnInit {
+  private _show: boolean;
   @Input() member : Member;
-  @Input() show : boolean;
+  @Input() set show(value: boolean) {
+    this._show = value;
+    if (value)
+      this.loadMemberData();
+  }
+  get show(): boolean {
+    return this._show;
+  }
   @Output() submit = new EventEmitter();
   @Output() cancel = new EventEmitter();
+
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    gender: new FormControl(''),
+  });
+  changeCount = 0
 
   constructor(
     private contactService: ContactService
@@ -21,11 +36,12 @@ export class AdminFilesChartMemberComponent implements OnInit {
 
   ngOnInit() {
   }
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    label: new FormControl(''),
-  });
+  loadMemberData() {
+    let memberDeepCopy = JSON.parse(JSON.stringify(this.member))
+    delete memberDeepCopy.id
+    delete memberDeepCopy.dob
+    this.profileForm.setValue(memberDeepCopy)
+  }
 
   onSubmit() {
     this.addToContact(this.profileForm.value);
@@ -35,14 +51,13 @@ export class AdminFilesChartMemberComponent implements OnInit {
     if (profileForm.profileForm === '' || profileForm.lastName === '')
       return
     let member = this.member
-    member.id = member.id ? member.id : this.contactService.getMembers().length + 1
+    // if member id is 0, user is not existed
+    if (!member.id) {
+      member.id = this.contactService.getMembers().length + 1
+    }
     member.firstName = profileForm.firstName
     member.lastName = profileForm.lastName
     member.label = profileForm.lable
-    console.log(member.id)
-    member.id = this.contactService.getMembers().length + 1
-  
-   
     this.contactService.addToContact(member);
   }
 
