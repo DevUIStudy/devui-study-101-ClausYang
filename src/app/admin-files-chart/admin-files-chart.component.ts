@@ -11,7 +11,7 @@ import { ContactService } from '../contact.services';
 export class AdminFilesChartComponent implements OnInit {
   members;
   member: Member = {
-    id: 1,
+    id: 0,
     firstName: '',
     lastName: '',
     label: '',
@@ -117,6 +117,12 @@ export class AdminFilesChartComponent implements OnInit {
 
   hideMemberEditor() {
     this.showMemberEditor = false
+  }
+
+  editItem(rowIndex, rowItem) {
+    this.member = this.members[rowIndex]
+    console.log(this.member)
+    this.showMemberEditor = true
   }
 
 }

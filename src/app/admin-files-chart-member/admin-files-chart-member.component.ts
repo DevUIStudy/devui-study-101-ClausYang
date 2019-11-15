@@ -31,11 +31,17 @@ export class AdminFilesChartMemberComponent implements OnInit {
     this.addToContact(this.profileForm.value);
   }
 
-  addToContact(member) {
-    if (member.firstName === '' || member.lastName === '')
+  addToContact(profileForm) {
+    if (profileForm.profileForm === '' || profileForm.lastName === '')
       return
+    let member = this.member
+    member.id = member.id ? member.id : this.contactService.getMembers().length + 1
+    member.firstName = profileForm.firstName
+    member.lastName = profileForm.lastName
+    member.label = profileForm.lable
+    console.log(member.id)
     member.id = this.contactService.getMembers().length + 1
-    member.dob = new Date()
+  
    
     this.contactService.addToContact(member);
   }
