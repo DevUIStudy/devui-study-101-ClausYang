@@ -7,15 +7,15 @@
 .top-bar {
     height: 50px;
     d-search {
-        float: left;
-        width: 280px;
+        float:left;
+        width:280px;
     }
     
     .right {
         float: right;
         height: 30px;
-        d-button {
-            line-height: 30px;
+        d-button{
+            line-height:30px;
             &:not(:last-child) {
                 margin-right: 20px;
             }

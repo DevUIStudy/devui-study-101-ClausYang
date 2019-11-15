@@ -6,7 +6,7 @@ import { ContactService } from '../contact.services';
 @Component({
   selector: 'app-admin-files-chart',
   templateUrl: './admin-files-chart.component.html',
-  styleUrls: ['./admin-files-chart.component.css']
+  styleUrls: ['./admin-files-chart.component.scss']
 })
 export class AdminFilesChartComponent implements OnInit {
   members;
