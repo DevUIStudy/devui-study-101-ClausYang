@@ -17,7 +17,7 @@ export class AdminFilesChartComponent implements OnInit {
     accounts: '',
     ban:'',
   }
-  showMemberEditor = true
+  showMemberEditor = false
   constructor() { }
 
   ngOnInit() {
@@ -80,6 +80,22 @@ export class AdminFilesChartComponent implements OnInit {
   setIndex(number: number) {
     this.pager1.pageIndex = number;
     console.log(this.pager1.pageIndex);
+  }
+
+  addMember() {
+    this.showMemberEditor = true
+  }
+
+  onMemberSubmit() {
+    this.hideMemberEditor()
+  }
+
+  onMemberCancel() {
+    this.hideMemberEditor()
+  }
+
+  hideMemberEditor() {
+    this.showMemberEditor = false
   }
 
 }
