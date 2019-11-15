@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Member } from '../member';
 import { Output, EventEmitter } from '@angular/core';
+import { ContactService } from '../contact.services';
 
 @Component({
   selector: 'app-admin-files-chart-member',
@@ -13,6 +14,10 @@ export class AdminFilesChartMemberComponent implements OnInit {
   @Input() show : boolean;
   @Output() submit = new EventEmitter();
   @Output() cancel = new EventEmitter();
+
+  constructor(
+    private contactService: ContactService
+  ) { }
   
   profileForm = new FormGroup({
     firstName: new FormControl(''),
@@ -22,9 +27,14 @@ export class AdminFilesChartMemberComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.profileForm.value);
+    this.addToContact(this.profileForm.value);
   }
 
-  constructor() { }
+  addToContact(member) {
+    member.dob = new Date()
+    window.alert('Your member has been added to the cart!');
+    this.contactService.addToContact(member);
+  }
 
   ngOnInit() {
   }

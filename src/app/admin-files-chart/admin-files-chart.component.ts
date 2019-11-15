@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { SourceType, originSource } from './mock-data.js';
 import { Member } from '../member';
+import { ContactService } from '../contact.services';
+
 @Component({
   selector: 'app-admin-files-chart',
   templateUrl: './admin-files-chart.component.html',
   styleUrls: ['./admin-files-chart.component.css']
 })
 export class AdminFilesChartComponent implements OnInit {
+  members;
   member: Member = {
     id: 1,
     firstName: '',
@@ -18,13 +21,7 @@ export class AdminFilesChartComponent implements OnInit {
     ban:'',
   }
   showMemberEditor = false
-  constructor() { }
-
-  ngOnInit() {
-  }
-  onSearch(term) {
-    console.log(term);
-  }
+  
 
   basicDataSource: Array<SourceType> = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
   dataTableOptions = {
@@ -72,6 +69,26 @@ export class AdminFilesChartComponent implements OnInit {
     pageIndex: 1,
     pageSize: 10
   };
+
+  constructor(
+    private contactService: ContactService
+  ) {
+    this.members = this.contactService.getMembers();
+  }
+
+  ngOnInit() {
+    this.loadData()
+  }
+
+  loadData() {
+    originSource.slice(0, 6).map(member => {
+      this.contactService.addToContact(member)
+    })
+  }
+  
+  onSearch(term) {
+    console.log(term);
+  }
 
   setTotal(number) {
     this.pager1.total = number;
