@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { SourceType, originSource } from './mock-data.js';
+import { Member } from '../member';
 @Component({
   selector: 'app-admin-files-chart',
   templateUrl: './admin-files-chart.component.html',
   styleUrls: ['./admin-files-chart.component.css']
 })
 export class AdminFilesChartComponent implements OnInit {
-
+  member: Member = {
+    id: 1,
+    firstName: '',
+    lastName: '',
+    dob: new Date(1990, 12, 1),
+    gender: 'Male',
+  }
   constructor() { }
 
   ngOnInit() {
@@ -55,7 +62,7 @@ export class AdminFilesChartComponent implements OnInit {
         }
     ]
   };
-  
+
   pager1 = {
     total: 100,
     pageIndex: 1,
