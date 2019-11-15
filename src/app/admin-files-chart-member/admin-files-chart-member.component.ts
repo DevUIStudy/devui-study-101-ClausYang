@@ -18,7 +18,9 @@ export class AdminFilesChartMemberComponent implements OnInit {
   constructor(
     private contactService: ContactService
   ) { }
-  
+
+  ngOnInit() {
+  }
   profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -26,17 +28,16 @@ export class AdminFilesChartMemberComponent implements OnInit {
   });
 
   onSubmit() {
-    console.warn(this.profileForm.value);
     this.addToContact(this.profileForm.value);
   }
 
   addToContact(member) {
+    if (member.firstName === '' || member.lastName === '')
+      return
+    member.id = this.contactService.getMembers().length + 1
     member.dob = new Date()
-    window.alert('Your member has been added to the cart!');
+   
     this.contactService.addToContact(member);
-  }
-
-  ngOnInit() {
   }
 
 }

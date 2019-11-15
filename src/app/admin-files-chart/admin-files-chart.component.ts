@@ -23,7 +23,7 @@ export class AdminFilesChartComponent implements OnInit {
   showMemberEditor = false
   
 
-  basicDataSource: Array<SourceType> = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
+  //basicDataSource: Array<SourceType> = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
   dataTableOptions = {
     columns: [
         {
@@ -74,6 +74,10 @@ export class AdminFilesChartComponent implements OnInit {
     private contactService: ContactService
   ) {
     this.members = this.contactService.getMembers();
+  }
+
+  getBasicDataSource() {
+    return JSON.parse(JSON.stringify(this.members));
   }
 
   ngOnInit() {
